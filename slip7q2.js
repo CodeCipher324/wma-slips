@@ -1,21 +1,31 @@
-// Accept input from the user
-let inputString = prompt("Enter a string:");
+const readline = require('readline');
 
-// Define vowels
-let vowels = 'aeiouAEIOU';
+// Create interface to read input from the terminal
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
-// Extract vowels from the input
-let foundVowels = '';
+// Ask the user for a string
+rl.question("Enter a string: ", function(inputString) {
+  // Define vowels
+  const vowels = 'aeiouAEIOU';
+  let foundVowels = '';
 
-for (let char of inputString) {
+  // Check each character
+  for (let char of inputString) {
     if (vowels.includes(char)) {
-        foundVowels += char + ' ';
+      foundVowels += char + ' ';
     }
-}
+  }
 
-// Display the vowels
-if (foundVowels.length > 0) {
-    alert("Vowels in the string are: " + foundVowels);
-} else {
-    alert("No vowels found in the string.");
-}
+  // Display result
+  if (foundVowels.length > 0) {
+    console.log("Vowels in the string are:", foundVowels.trim());
+  } else {
+    console.log("No vowels found in the string.");
+  }
+
+  // Close the readline interface
+  rl.close();
+});

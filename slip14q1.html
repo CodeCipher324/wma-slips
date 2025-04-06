@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PIN Code Validation</title>
+  <style>
+    input, p {
+      font-size: 1rem;
+      margin-top: 10px;
+    }
+    .error {
+      color: red;
+    }
+    .valid {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <label for="pincode">Enter PIN Code:</label><br>
+  <input type="text" id="pincode" onblur="validatePinCode()" />
+  <p id="message"></p>
+
+  <script>
+    function validatePinCode() {
+      const pinInput = document.getElementById("pincode");
+      const message = document.getElementById("message");
+      const pinCode = pinInput.value.trim();
+
+      // PIN code must be exactly 6 digits and only numbers
+      const pinRegex = /^[1-9][0-9]{5}$/;
+
+      if (pinRegex.test(pinCode)) {
+        message.textContent = "Valid PIN Code.";
+        message.className = "valid";
+      } else {
+        message.textContent = "Invalid PIN Code. Must be a 6-digit number starting from 1-9.";
+        message.className = "error";
+      }
+    }
+  </script>
+
+</body>
+</html>

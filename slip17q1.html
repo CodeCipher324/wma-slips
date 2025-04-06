@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrolling Image</title>
+    <style>
+        .scroll-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+        .scroll-image {
+            position: absolute;
+            width: auto;
+            height: 100px;
+            animation: scroll-left 10s linear infinite;
+        }
+        @keyframes scroll-left {
+            from {
+                left: 100%;
+            }
+            to {
+                left: -100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="scroll-container">
+            <img src="your-image.jpg" alt="Scrolling Image" class="scroll-image">
+        </div>
+    </form>
+</body>
+</html>

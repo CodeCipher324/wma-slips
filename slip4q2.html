@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Ename</title>
+</head>
+<body>
+    <h2>Enter Employee Name:</h2>
+    <input type="text" id="enameInput" placeholder="Enter Ename" />
+    <button onclick="displayEname()">Submit</button>
+    
+    <div id="output" style="margin-top: 20px; font-size: 20px; color: blue;"></div>
+
+    <script>
+        function displayEname() {
+            // Get the value from input
+            let ename = document.getElementById("enameInput").value;
+            
+            // Display the value in the <div>
+            document.getElementById("output").innerText = "Employee Name: " + ename;
+        }
+    </script>
+</body>
+</html>

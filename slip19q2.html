@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voter Details</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 50%;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Enter Voter Details</h2>
+
+<form method="post" action="">
+    <label for="voter_id">Voter ID:</label>
+    <input type="text" name="voter_id" required><br><br>
+
+    <label for="name">Name:</label>
+    <input type="text" name="name" required><br><br>
+
+    <label for="constituency">Constituency:</label>
+    <input type="text" name="constituency" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $voter_id = $_POST["voter_id"];
+    $name = $_POST["name"];
+    $constituency = $_POST["constituency"];
+
+    echo "<h2>Voter Details</h2>";
+    echo "<table>
+            <tr>
+                <th>Voter ID</th>
+                <th>Name</th>
+                <th>Constituency</th>
+            </tr>
+            <tr>
+                <td>$voter_id</td>
+                <td>$name</td>
+                <td>$constituency</td>
+            </tr>
+          </table>";
+}
+?>
+
+</body>
+</html>

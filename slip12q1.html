@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Operations</title>
+</head>
+<body>
+
+<h2>String Operations Form</h2>
+
+<form method="post">
+    <label>Enter First String:</label><br>
+    <input type="text" name="string1" required><br><br>
+
+    <label>Enter Second String:</label><br>
+    <input type="text" name="string2" required><br><br>
+
+    <label>Select Operation:</label><br>
+    <input type="radio" name="operation" value="compare" required> Compare<br>
+    <input type="radio" name="operation" value="uppercase"> Convert to Uppercase<br>
+    <input type="radio" name="operation" value="lowercase"> Convert to Lowercase<br><br>
+
+    <input type="submit" name="submit" value="Perform Operation">
+</form>
+
+<?php
+if (isset($_POST['submit'])) {
+    $string1 = $_POST['string1'];
+    $string2 = $_POST['string2'];
+    $operation = $_POST['operation'];
+
+    echo "<h3>Result:</h3>";
+
+    switch ($operation) {
+        case "compare":
+            if ($string1 == $string2) {
+                echo "The strings are <strong>equal</strong>.";
+            } else {
+                echo "The strings are <strong>not equal</strong>.";
+            }
+            break;
+
+        case "uppercase":
+            echo "Uppercase of First String: <strong>" . strtoupper($string1) . "</strong><br>";
+            echo "Uppercase of Second String: <strong>" . strtoupper($string2) . "</strong>";
+            break;
+
+        case "lowercase":
+            echo "Lowercase of First String: <strong>" . strtolower($string1) . "</strong><br>";
+            echo "Lowercase of Second String: <strong>" . strtolower($string2) . "</strong>";
+            break;
+
+        default:
+            echo "Invalid operation selected.";
+    }
+}
+?>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Checker</title>
+</head>
+<body>
+
+<?php
+// Given number
+$number = 121; // You can change this to test different numbers
+$original = $number;
+
+// Reverse the number
+$reverse = 0;
+while ($number > 0) {
+    $remainder = $number % 10;
+    $reverse = ($reverse * 10) + $remainder;
+    $number = (int)($number / 10);
+}
+
+// Check if palindrome
+if ($original == $reverse) {
+    echo "<p style='color:red;'>$original is a Palindrome number.</p>";
+} else {
+    echo "<p style='color:red;'>$original is NOT a Palindrome number.</p>";
+}
+?>
+
+</body>
+</html>
